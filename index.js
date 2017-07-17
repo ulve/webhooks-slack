@@ -156,11 +156,13 @@ function formatSubtitle(metadata) {
 }
 
 function notifySlack(imageUrl, payload, action) {
+  console.log(`ImageUrl: ${imageUrl}`)
   slack.webhook({
     channel,
     username: 'Plextor',    
     attachments: [{
       fallback: 'Behövs.',
+      icon_emoji: ':poop:',
       color: '#a67a2d',
       title: formatTitle(payload.Metadata),
       text: formatSubtitle(payload.Metadata),
