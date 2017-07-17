@@ -83,7 +83,7 @@ app.post('/', upload.single('thumb'), async(req, res, next) => {
 
     if (image) {
       console.log('[SLACK]', `Sending ${key} with image`);
-      notifySlack(appURL + '/images/' + key, payload, action);
+      notifySlack('https://' + appURL + '/images/' + key, payload, action);
     } else {
       console.log('[SLACK]', `Sending ${key} without image`);
       notifySlack(null, payload, action);
